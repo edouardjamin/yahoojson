@@ -22,13 +22,15 @@
         <h1>Yahoo + JSON = <span class="glyphicon glyphicon-heart"></span></h1>
         <p>Doc is coming soon</p>
 
-        <form class="col-sm-2" method="post">
+        <form class="col-sm-2" method="get" action="symbol.php">
           <div class="form-group">
               <label for="symbol">Symbol</label>
-                <input type="text" class="form-control" id="symbolEntry" placeholder="Symbol" />
+                <input type="text" class="form-control" id="symbolEntry" name="symbol" placeholder="Symbol" />
           </div>
-          <button type="submit" class="btn btn-default" id="search-button" action="symbol.php">Search!</button>
+          <button type="submit" class="btn btn-default" id="search-button">Search!</button>
     </div>
+
+    <?php echo $symbol; ?>
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
