@@ -71,11 +71,15 @@ function lookup($symbol)
 <script>
 
     // define the array
-    var symb = {symbol: "<?php echo $value['symbol']; ?>", price:"<?php echo $value['price']; ?>", name:"<?php echo $value['name']; ?>"};
-
+    var symb = {
+        symbols: "<?php echo $value['symbol']; ?>",
+        price: "<?php echo $value['price']; ?>",
+        name: "<?php echo $value['name']; ?>"
+    };
+    
     // print the JSON Array
-    var json = JSON.stringify(symb, null, "\t");
-    document.getElementById("json").innerHTML = json;
+    var json = JSON.stringify(symb, null, 4);
+    document.getElementById("json").innerHTML = "<pre>" + json  + "</pre>";
 
     // convert to JSON
     var obj = JSON.parse(json);
