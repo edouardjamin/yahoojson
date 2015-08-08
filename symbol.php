@@ -66,16 +66,17 @@ function lookup($symbol)
         ];
     }
 ?>
-
 <p id="json"></p>
 
 <script>
-    var symbol = '{"symbol": "<?php echo $value['symbol']; ?>","price":"<?php echo $value['price']; ?>","name":"<?php echo $value['name']; ?>"}';
 
-    var obj = JSON.parse(text);
+    // define the array
+    var symb = {symbol: "<?php echo $value['symbol']; ?>", price:"<?php echo $value['price']; ?>", name:"<?php echo $value['name']; ?>"};
 
-    document.getElementById("json").innerHTML =
-    obj.symbol + "<br>" +
-    obj.price + "<br>" +
-    obj.name;
+    // print the JSON Array
+    var json = JSON.stringify(symb, null, "\t");
+    document.getElementById("json").innerHTML = json;
+
+    // convert to JSON
+    var obj = JSON.parse(json);
 </script>
