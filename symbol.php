@@ -5,6 +5,15 @@ $symbol = $_GET["symbol"];
 
 $value = lookup($symbol);
 
+$data = array(
+      'symbol' => $value['symbol'],
+      'name' => $value['name'],
+      'price' => $value['price']
+);
+
+$json = json_encode($data);
+echo $json;
+
 
 function lookup($symbol)
     {
@@ -66,21 +75,3 @@ function lookup($symbol)
         ];
     }
 ?>
-<p id="json"></p>
-
-<script>
-
-    // define the array
-    var symb = {
-        symbols: "<?php echo $value['symbol']; ?>",
-        price: "<?php echo $value['price']; ?>",
-        name: "<?php echo $value['name']; ?>"
-    };
-    
-    // print the JSON Array
-    var json = JSON.stringify(symb, null, 4);
-    document.getElementById("json").innerHTML = "<pre>" + json  + "</pre>";
-
-    // convert to JSON
-    var obj = JSON.parse(json);
-</script>
